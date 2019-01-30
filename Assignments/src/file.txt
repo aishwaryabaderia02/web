@@ -1,0 +1,4 @@
+A cursor is a temporary work area created in system memory when an SQL statement is executed. A cursor is a set of rows together with a pointer
+that identifies a current row. It is a database object to retrieve data from a result set one row at a time. It is useful when we want to 
+manipulate the record of a table in a singleton method, in other words one row at a time. In other words, a cursor can hold more than one row,
+but can process only one row at a time. The set of rows the cursor holds is called the active set.
