@@ -129,7 +129,7 @@ public class Client {
 	public static Set<Peripheral> filterInventoryByPrice(int startingPrice, int endingPrice, Set<Peripheral> peripherals) {
 
 		
-		TreeSet tree_set.subSet(Peripheral  , Object up_element)
+	//	TreeSet tree_set.subSet(Peripheral  , Object up_element)
 
 		return null;
 	}

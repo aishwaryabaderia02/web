@@ -88,7 +88,7 @@ public class Question  {
 	}
 
 
-/*	@Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -110,6 +110,8 @@ public class Question  {
 			return false;
 		return true;
 	}
-	*/
+
+
+
 }
 

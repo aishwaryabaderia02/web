@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -113,19 +114,23 @@ public class DataManagerImpl implements DataManager {
 
 	@Override
 	public void sortByCategory(List<Question> questionList) {
-		Set<Question> ts1 = new TreeSet<Question>(new CategorySortComparator());
+		CategorySortComparator cs = new CategorySortComparator();
+		Collections.sort(questionList,cs);
+		
+		int i = 1;
 		for (Question question : questionList) {	
-			ts1.add(question);
-			}
+			
+			System.out.println(i+"."+question.getQuestion() + " " +question.getCategory() + question.getSrno());
+			i++;
+		}
+	
 	}
+	
 
 	@Override
 	public void sortByComplexity(List<Question> questionList) {
-		Set<Question> ts2 = new TreeSet<Question>(
-				new ComplexitySortComparator());
-		for (Question question : questionList) {	
-		ts2.add(question);
-		}
+		ComplexitySortComparator cs = new ComplexitySortComparator();
+		Collections.sort(questionList,cs);	
 	
 	}
 }

@@ -53,6 +53,7 @@ public class StudentDataManager implements DataManager {
 			throws InsufficientDataException {
 		
 		Iterator<Student> itr = studentList.iterator();
+		Address a = new Address();
 		while(itr.hasNext()){
 	//	Student student = itr.next();
 			
@@ -62,17 +63,18 @@ public class StudentDataManager implements DataManager {
 			}
 			//
 			else
-				Address a = itr.next().getAddress();
-				if(a.next().getCity() == null || a.getStreetName() == null || a.getZipCode() == null)
-			{
-				studentList.remove(student);
-			}
+				a = itr.next().getAddress();
+				if(a.getCity().equals(null)|| a.getStreetName().equals(null) || a.getZipCode().equals(null))
+				{
+					itr.remove();
+				}
 				
 		}
 		for(Student student: studentList)
 		{
 			System.out.println(student.getRollno() + " " + student.getStudentName() + " " + student.getAge());
 		}
+		
 		
 	}
 
