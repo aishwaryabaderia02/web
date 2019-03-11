@@ -39,8 +39,10 @@ public class InventoryServiceImpl implements InventoryService {
 		List<Item> itemList = new ArrayList<Item>();
 		Map<Ingred, Float> map = new HashMap<Ingred, Float>();
 		Cheese cheese;
+		DatabaseConnectionManager con = new DatabaseConnectionManager();
 		try {
-			connection = (new DatabaseConnectionManager()).getConnection();
+			
+			connection = con.getConnection();
 			Statement statement;
 			PreparedStatement pstatement = null;
 			statement = connection.createStatement();
@@ -94,6 +96,13 @@ public class InventoryServiceImpl implements InventoryService {
 			e.printStackTrace();
 		} catch (SQLException e) {
 		e.printStackTrace();
+		}finally{
+			try {
+				con.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return itemList;
 	}

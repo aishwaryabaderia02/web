@@ -45,7 +45,14 @@ public class StudentDataManager implements DataManager {
 			ls.add(stu);
 			
 		}
+		for(Student stu : ls)
+		{
+			System.out.println(stu.getStudentName());
+			Address address = stu.getAddress();
+			System.out.println(address.getCity());
+		}
 		return ls;
+	
 	}
 
 	@Override
@@ -53,7 +60,7 @@ public class StudentDataManager implements DataManager {
 			throws InsufficientDataException {
 		
 		Iterator<Student> itr = studentList.iterator();
-		Address a = new Address();
+		Address a ;
 		while(itr.hasNext()){
 	//	Student student = itr.next();
 			
@@ -62,13 +69,14 @@ public class StudentDataManager implements DataManager {
 				itr.remove();
 			}
 			//
-			else
+			else{
 				a = itr.next().getAddress();
+				System.out.println(a.getZipCode());
 				if(a.getCity().equals(null)|| a.getStreetName().equals(null) || a.getZipCode().equals(null))
 				{
 					itr.remove();
 				}
-				
+			}
 		}
 		for(Student student: studentList)
 		{
@@ -80,8 +88,7 @@ public class StudentDataManager implements DataManager {
 
 	@Override
 	public void sortData(List<Student> studentList) {
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	

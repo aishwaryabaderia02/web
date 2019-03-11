@@ -21,7 +21,12 @@ public class Client {
 		List<Item> itemType = null;
 		InventoryServiceImpl in = new InventoryServiceImpl();
 		itemList = in.readAllItemsFromDb();
-		
+		if(itemList.equals(null)){
+			System.out.println("null");
+		}
+		else{
+			System.out.println("not null");
+		}
 		in.calculateExpiryDate(itemList);
 		in.sortItems(itemList);
 		try {

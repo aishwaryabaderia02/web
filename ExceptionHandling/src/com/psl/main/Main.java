@@ -15,8 +15,9 @@ public class Main {
 		}finally{
 			
 		}*/
-		
+		{
 		System.out.println(caculateSpeed(55.0,0.0));
+		}
 	}
 	
 	/*public static void searchProduct(String productCode) throws ProductNotFoundException
@@ -28,7 +29,7 @@ public class Main {
 	public static double caculateSpeed(double distance, double time)
 	{
 		assert distance > 0 : "Distance should be greater than 0";
-		assert time > 0	: "time should be greater than 0";
+		assert(time > 0)	: "time should be greater than 0";
 		
 		return distance/time;
 	}

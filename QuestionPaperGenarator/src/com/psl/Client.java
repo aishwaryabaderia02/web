@@ -2,6 +2,7 @@ package com.psl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.bean.Category;
 import com.bean.Complexity;
@@ -25,6 +26,8 @@ public class Client {
 		List<Question> history = new ArrayList<Question>();
 		List<Question> gk = new ArrayList<Question>();
 		List<Question> science = new ArrayList<Question>();
+		Set<Question> set;
+		
 		
 		DataManagerImpl dmi = new DataManagerImpl();
 		questionList = dmi.populateData();
@@ -40,7 +43,8 @@ public class Client {
 		template.add(new Criteria(Category.Science,Complexity.Complex,1));
 		template.add(new Criteria(Category.Geography,Complexity.Simple,1));
 		
-		dmi.generateQuestionPaper(questionList,template);
+		set = dmi.generateQuestionPaper(questionList,template);
+		
 		dmi.sortByCategory(questionList);
 		dmi.sortByComplexity(questionList);
 	}
